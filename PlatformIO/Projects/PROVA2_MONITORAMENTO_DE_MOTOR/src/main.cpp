@@ -101,7 +101,7 @@ void loop() {
 
   //6. LCD
   lcd.setCursor(0,1);
-  lcd.print("PROVA - PRATICA")
+  lcd.print("PROVA - PRATICA");
   lcd.clear();
   lcd.setCursor(0,0);
   lcd.print("T:"); lcd.print(temp, 1); lcd.print(" V:"); lcd.print(vibracao); lcd.print("%");
