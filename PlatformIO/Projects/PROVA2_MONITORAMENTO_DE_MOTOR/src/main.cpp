@@ -1,24 +1,25 @@
-#include <WiFi.h>
-#include <PubSubClient.h>
-#include <DHT.h>
-#include <LiquidCrystal_I2C.h>
+//Incluir bibliotecas a serem utilizadas
+#include <WiFi.h> //Gerencia a conexão do dispositivo com redes Wi-Fi
+#include <PubSubClient.h> //Permite a comunicação via protocolo MQTT (publicar e receber mensagens)
+#include <DHT.h> //Biblioteca para leitura de temperatura e umidade do sensor DHT22
+#include <LiquidCrystal_I2C.h> //Controla o display LCD
 
 //1. CONFIGURAÇÕES (WIFI e MQTT)
 const char* ssid = "Wokwi-GUEST";
 const char* password = "";
 const char* mqtt_server = "broker.hivemq.com";
 
-const char* topic_publish = "senai/MATEUS/motor/dados"; 
+const char* topic_publish = "senai/MATEUS/motor/dados";
 
 //2. HARDWARE
-#define PIN_DHT 15       // Temperatura
-#define PIN_VIB 34       // Vibração (Potenciômetro 1)
-#define PIN_COR 35       // Corrente (Potenciômetro 2)
+#define PIN_DHT 15   	// Temperatura
+#define PIN_VIB 34   	// Vibração (Potenciômetro 1)
+#define PIN_COR 35   	// Corrente (Potenciômetro 2)
 
 // LEDs
-#define LED_VERDE 12     // GPIO 12
-#define LED_AMARELO 14   // GPIO 14 
-#define LED_VERMELHO 27  // GPIO 27 
+#define LED_VERDE 12 	// GPIO 12
+#define LED_AMARELO 14   // GPIO 14
+#define LED_VERMELHO 27  // GPIO 27
 
 //3. ATIVAÇÃO DE OBJETOS
 WiFiClient espClient;
@@ -56,12 +57,15 @@ void setup() {
   lcd.clear();
   Serial.print("Conectando Wi-Fi");
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
+	delay(500);
+	Serial.print(".");
   }
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("CONECTADO!");
+  digitalWrite(LED_AMARELO, HIGH);
+  digitalWrite(LED_VERDE, HIGH);
+  digitalWrite(LED_VERMELHO, HIGH);
   delay(3000); // Fica na tela por 3 segundos
   lcd.clear();
   Serial.println(" Conectado!");
@@ -71,26 +75,26 @@ void setup() {
 
 void reconnect() {
   while (!client.connected()) {
-    Serial.print("Conectando MQTT...");
-    String clientId = "ESP32_Motor_" + String(random(0xffff), HEX);
-    if (client.connect(clientId.c_str())) {
-      Serial.println("OK!");
-    } else {
-      Serial.print("Falha: ");
-      Serial.print(client.state());
-      delay(5000);
-    }
+	Serial.print("Conectando MQTT...");
+	String clientId = "ESP32_Motor_" + String(random(0xffff), HEX);
+	if (client.connect(clientId.c_str())) {
+  	Serial.println("OK!");
+	} else {
+  	Serial.print("Falha: ");
+  	Serial.print(client.state());
+  	delay(5000);
+	}
   }
 }
 
 void loop() {
   if (!client.connected()) {
-    reconnect();
+	reconnect();
   }
   client.loop();
 
   //4. LEITURA E MAPEAMENTO
-  
+ 
   //Temperatura
   float temp = dht.readTemperature();
   if (isnan(temp)) temp = 0.0;
@@ -109,19 +113,19 @@ void loop() {
   digitalWrite(LED_AMARELO, LOW);
   digitalWrite(LED_VERMELHO, LOW);
 
-  if (vibracao < 35) {
-    digitalWrite(LED_VERDE, HIGH); // Normal
-  } else if (vibracao >= 35 && vibracao < 45) {
-    digitalWrite(LED_AMARELO, HIGH); // Alerta
+  if (vibracao < 45) {
+	digitalWrite(LED_VERDE, HIGH); // Normal
+  } else if (vibracao >= 45 && vibracao < 70) {
+	digitalWrite(LED_AMARELO, HIGH); // Alerta
   } else {
-    digitalWrite(LED_VERMELHO, HIGH); // Perigo (>45)
+	digitalWrite(LED_VERMELHO, HIGH); // Perigo (>70)
   }
 
   //6. LCD
   lcd.clear();
   lcd.setCursor(0,0);
   lcd.print("T:"); lcd.print(temp, 1); lcd.print(" V:"); lcd.print(vibracao); lcd.print("%");
-  
+ 
   lcd.setCursor(0,1);
   lcd.print("C:"); lcd.print(corrente); lcd.print("A");
 
