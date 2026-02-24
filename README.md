@@ -58,7 +58,7 @@ O sistema utiliza um broker público para comunicação:
 1.  Abra o projeto na sua IDE de preferência (VS Code ou IntelliJ).
 2.  Certifique-se de que o **Maven** baixou as dependências do `pom.xml`.
 3.  Execute a classe `App.java` (ou `Main.java`).
-4.  O console exibirá: *"Dados de Telemetria Coletados com Sucesso: [DADOS]"*.
+4.  O console exibirá os dados enviados pelo ESP32.
 
 ## 👨‍💻 Autor
 
@@ -66,6 +66,7 @@ O sistema utiliza um broker público para comunicação:
 📧 E-mail: mateusdossantoscavalheiro@gmail.com
 
 *Unidade Curricular: Programação para Coleta de Dados em Automação* *Docente: Lucas Sousa dos Santos*
+*WEG S.A. & SENAI - JARAGUÁ DO SUL*
 
 ---
 *Projeto desenvolvido para fins educacionais - 2026.*
