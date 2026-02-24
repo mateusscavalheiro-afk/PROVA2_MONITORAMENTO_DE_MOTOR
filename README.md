@@ -26,7 +26,7 @@ O objetivo foi modernizar o processo de ensaios de qualidade de motores elétric
 | **Potenciômetro 1** | Simulação de Vibração | D34 |
 | **Potenciômetro 2** | Simulação de Corrente | D35 |
 | **LCD 16x2 (I2C)** | Display de Status Local | SDA: D21 / SCL: D22 |
-| **LED Verde** | Indicador de Status | D12 |
+| **LED Verde, Amarelo e Vermelho** | Indicador de Status | D12 |
 
 ### Software & Bibliotecas
 * **Firmware (C++):**
