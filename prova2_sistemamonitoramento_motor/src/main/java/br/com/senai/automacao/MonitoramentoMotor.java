@@ -52,7 +52,7 @@ public class MonitoramentoMotor {
 
                         // Validação Extra para o Relatório (Segurança)
                         double vib = Double.parseDouble(dados[1]);
-                        if (vib > 45) {
+                        if (vib > 70) {
                             System.err.println("[ALERTA CRÍTICO] PERIGO DE VIBRAÇÃO EXCESSIVA!");
                         }
                     }
