@@ -39,6 +39,14 @@ void setup() {
   lcd.init();
   lcd.backlight();
 
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("SENAI - CIBER"); // Opcional
+  lcd.setCursor(0, 1);
+  lcd.print("PROVA - PRATICA");
+  delay(3000); // Fica na tela por 3 segundos
+  lcd.clear();
+
   // Conexão Wi-Fi
   WiFi.begin(ssid, password);
   Serial.print("Conectando Wi-Fi");
@@ -100,8 +108,6 @@ void loop() {
   }
 
   //6. LCD
-  lcd.setCursor(0,1);
-  lcd.print("PROVA - PRATICA");
   lcd.clear();
   lcd.setCursor(0,0);
   lcd.print("T:"); lcd.print(temp, 1); lcd.print(" V:"); lcd.print(vibracao); lcd.print("%");
