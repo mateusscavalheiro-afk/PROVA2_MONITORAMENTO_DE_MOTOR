@@ -62,11 +62,10 @@ O sistema utiliza um broker público para comunicação:
 
 ## 👨‍💻 Autor
 
-**Mateus Cavalheiro** Curso Técnico em CiberSistemas - SENAI/SC  
-📧 E-mail: mateusdossantoscavalheiro@gmail.com
+**Mateus dos Santos Cavalheiro** Curso Técnico em CiberSistemas  
+🏢 **WEG S.A. & SENAI - JARAGUÁ DO SUL** 📧 E-mail: mateusdossantoscavalheiro@gmail.com
 
 *Unidade Curricular: Programação para Coleta de Dados em Automação* *Docente: Lucas Sousa dos Santos*
-*WEG S.A. & SENAI - JARAGUÁ DO SUL*.
 
 ---
 *Projeto desenvolvido para fins educacionais - 2026.*
