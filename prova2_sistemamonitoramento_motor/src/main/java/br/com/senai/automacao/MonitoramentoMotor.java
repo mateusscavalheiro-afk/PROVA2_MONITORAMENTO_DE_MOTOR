@@ -1,5 +1,6 @@
 package br.com.senai.automacao;
 
+//Importação das bibliotecas
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -14,7 +15,7 @@ import java.util.UUID;
 public class MonitoramentoMotor {
 
     public static void main(String[] args) {
-        // CONFIGURAÇÕES (Iguais ao Anexo 1 e ao seu código C++)
+        // CONFIGURAÇÕES
         String broker = "tcp://broker.hivemq.com:1883";
         String topico = "senai/MATEUS/motor/dados"; // O MESMO DO C++
         String clientId = "Java_Monitor_" + UUID.randomUUID().toString();
@@ -35,7 +36,7 @@ public class MonitoramentoMotor {
 
                 @Override
                 public void messageArrived(String topic, MqttMessage message) throws Exception {
-                    // AQUI A MÁGICA ACONTECE
+
                     String payload = new String(message.getPayload());
 
                     // O C++ envia: "25.0,12,30" (Exemplo)
