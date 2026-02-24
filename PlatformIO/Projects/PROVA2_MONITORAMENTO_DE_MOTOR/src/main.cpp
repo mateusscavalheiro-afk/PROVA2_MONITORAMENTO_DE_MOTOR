@@ -100,6 +100,7 @@ void loop() {
   }
 
   //6. LCD
+  lcd.setCursor(0,1);
   lcd.print("PROVA - PRATICA")
   lcd.clear();
   lcd.setCursor(0,0);
