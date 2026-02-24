@@ -66,7 +66,7 @@ O sistema utiliza um broker público para comunicação:
 📧 E-mail: mateusdossantoscavalheiro@gmail.com
 
 *Unidade Curricular: Programação para Coleta de Dados em Automação* *Docente: Lucas Sousa dos Santos*
-*WEG S.A. & SENAI - JARAGUÁ DO SUL*
+*WEG S.A. & SENAI - JARAGUÁ DO SUL*.
 
 ---
 *Projeto desenvolvido para fins educacionais - 2026.*
