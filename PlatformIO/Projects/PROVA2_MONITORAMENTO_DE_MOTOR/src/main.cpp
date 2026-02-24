@@ -49,11 +49,21 @@ void setup() {
 
   // Conexão Wi-Fi
   WiFi.begin(ssid, password);
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("CONECTANDO WIFI..");
+  delay(3000); // Fica na tela por 3 segundos
+  lcd.clear();
   Serial.print("Conectando Wi-Fi");
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("CONECTADO!");
+  delay(3000); // Fica na tela por 3 segundos
+  lcd.clear();
   Serial.println(" Conectado!");
 
   client.setServer(mqtt_server, 1883);
